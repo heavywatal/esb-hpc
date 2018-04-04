@@ -1,0 +1,14 @@
+baseURL = "http://localhost/esb-hpc/"
+publishDir = "../heavywatal.github.io/public/esb-hpc/"
+title = "HPC of ESB, SOKENDAI"
+theme = "nonblog"
+languageCode = "ja"
+hasCJKLanguage = true
+noTimes = true
+disableKinds = ["RSS"]
+pygmentsCodefences = true
+pygmentsUseClasses = true
+
+[blackfriday]
+fractions = false
+plainIDAnchors = true
