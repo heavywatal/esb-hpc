@@ -12,3 +12,7 @@ pygmentsUseClasses = true
 [blackfriday]
 fractions = false
 plainIDAnchors = true
+
+[params]
+logo_src = "sokendai-logo.png"
+logo_alt = "sokendai-logo.png"
