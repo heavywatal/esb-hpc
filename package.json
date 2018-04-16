@@ -1,0 +1,17 @@
+{
+  "name": "esb-hpc",
+  "version": "1.0.0",
+  "scripts": {
+    "stop": "ls -d public/* | grep -Ev '.git' | xargs rm -r",
+    "build:theme": "cd themes/nonblog/ && npm run build",
+    "watch:theme": "cd themes/nonblog/ && npm start",
+    "build:content": "hugo --destination=public",
+    "watch:content": "hugo --destination=public -w",
+    "build": "run-s build:theme build:content",
+    "rebuild": "run-s stop build",
+    "start": "run-p watch:*"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.2"
+  }
+}
