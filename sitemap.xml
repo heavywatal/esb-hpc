@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>http://localhost/esb-hpc/</loc>
+  </url>
+  <url>
+    <loc>http://localhost/esb-hpc/usage/</loc>
+  </url>
+  <url>
+    <loc>http://localhost/esb-hpc/hardware/</loc>
+  </url>
+  <url>
+    <loc>http://localhost/esb-hpc/software/</loc>
+  </url>
+  <url>
+    <loc>http://localhost/esb-hpc/categories/</loc>
+    <priority>0</priority>
+  </url>
+  <url>
+    <loc>http://localhost/esb-hpc/tags/</loc>
+    <priority>0</priority>
+  </url>
+</urlset>
