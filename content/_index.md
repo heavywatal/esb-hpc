@@ -4,10 +4,13 @@ menu = "main"
 weight = 1
 +++
 
-## High Performance Computing Cluster of ESB, SOKENDAI
-
+*Metal* is a high performance computing cluster of ESB department, SOKENDAI.
 
 ## News
 
+2018-04-XX
+: User registration started.
 
-## Application Form
+## Contact
+
+[Shohei Takuno and Watal M. Iwasaki](mailto:takuno_shohei@soken.ac.jp?subject=[metal-esb]&cc=iwasakiwt@soken.ac.jp)
