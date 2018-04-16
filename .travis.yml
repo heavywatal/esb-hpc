@@ -3,6 +3,8 @@ language: go
 branches:
   only:
   - public
+before_script:
+- go env
 script:
 - go version
 notifications:
