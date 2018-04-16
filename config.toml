@@ -1,6 +1,6 @@
 baseURL = "http://localhost/esb-hpc/"
 publishDir = "../heavywatal.github.io/public/esb-hpc/"
-title = "HPC of ESB, SOKENDAI"
+title = "Metal — HPC cluster of ESB, SOKENDAI"
 theme = "nonblog"
 languageCode = "ja"
 hasCJKLanguage = true
