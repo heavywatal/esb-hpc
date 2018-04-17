@@ -60,29 +60,84 @@ Software
 
 <h2 id="os">OS</h2>
 
-<p>CentOS 7.2 x86_64</p>
+<p>CentOS 7.3 x86_64</p>
 
-<h2 id="job-management-system">Job Management System</h2>
+<h3 id="system-library">System Library</h3>
+
+<p><code>/usr/bin</code>, <code>/bin</code></p>
+
+<ul>
+<li>Shells
+
+<ul>
+<li>bash 4.2.46</li>
+<li>zsh 5.0.2</li>
+</ul></li>
+<li>Editors
+
+<ul>
+<li>emacs 24.3.1</li>
+<li>vi 7.5</li>
+<li>nano 2.3.1</li>
+</ul></li>
+<li>Compilers and interpreters
+
+<ul>
+<li>gcc 4.8.5</li>
+<li>libc++ 3.8.0 (EPEL)</li>
+<li>python 2.7.5</li>
+<li>ruby 2.0.0p648</li>
+<li>R 3.4.3 (EPEL)</li>
+</ul></li>
+<li>Other tools
+
+<ul>
+<li>git 1.8.3.1</li>
+</ul></li>
+</ul>
+
+<p>Some tools are available in newer version. See below.</p>
+
+<h3 id="job-management-system">Job Management System</h3>
+
+<p><code>/opt/pbs</code></p>
 
 <p><a href="http://pbspro.org/">PBS Professional</a></p>
 
-<h2 id="programming-environment">Programming Environment</h2>
+<h2 id="additional-tools">Additional Tools</h2>
 
-<h3 id="compilers-and-interpreters">Compilers and interpreters</h3>
+<p>Additional tools are installed with <a href="http://linuxbrew.sh/">Linuxbrew</a>
+to <code>/home/linuxbrew/.linuxbrew/</code>.
+The environment variable <code>PATH</code> for the <code>bin</code> is preset for all users.</p>
+
+<h3 id="compilers-interpreters-and-libraries">Compilers, Interpreters, and Libraries</h3>
 
 <ul>
-<li><a href="https://gcc.gnu.org/">GCC</a></li>
-<li><a href="https://clang.llvm.org/">Clang</a></li>
-<li><a href="https://www.python.org/">Python</a></li>
-<li><a href="https://cran.r-project.org/">R</a></li>
+<li>gcc 5.5.0, 7.3.0</li>
+<li>clang 6.0</li>
+<li>python 3.6
+
+<ul>
+<li>numpy</li>
+<li>scipy</li>
+<li>pandas</li>
+<li>matplotlib</li>
+<li>seaborn</li>
+<li>biopython</li>
+<li>Pillow</li>
+</ul></li>
+<li>boost</li>
+<li>eigen</li>
 </ul>
 
-<h3 id="general-tools-and-libraries">General tools and libraries</h3>
+<h3 id="general-tools">General tools</h3>
 
 <ul>
-<li><a href="https://git-scm.com/">Git</a></li>
-<li><a href="https://www.boost.org/">Boost</a></li>
-<li><a href="https://cmake.org/">CMake</a></li>
+<li>tmux</li>
+<li>cmake</li>
+<li>git</li>
+<li>emacs 25.3</li>
+<li>nano 2.9.5</li>
 </ul>
 
 <h3 id="bioinfomatics-tools">Bioinfomatics tools</h3>
