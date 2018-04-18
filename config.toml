@@ -1,5 +1,5 @@
-baseURL = "http://localhost/esb-hpc/"
-publishDir = "../heavywatal.github.io/public/esb-hpc/"
+baseURL = "http://localhost/restricted_access/esb-hpc/"
+publishDir = "../heavywatal.github.io/public/restricted_access/esb-hpc/"
 title = "Metal — HPC cluster of ESB, SOKENDAI"
 theme = "nonblog"
 languageCode = "ja"
