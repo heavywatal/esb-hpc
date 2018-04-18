@@ -13,4 +13,4 @@ weight = 1
 
 ## Contact
 
-[Shohei Takuno and Watal M. Iwasaki](mailto:takuno_shohei@soken.ac.jp?subject=[metal-esb]&cc=iwasakiwt@soken.ac.jp)
+[Shohei Takuno and Watal M. Iwasaki](mailto:takuno_shohei@soken.ac.jp?subject=[metal-sokendai]&cc=iwasakiwt@soken.ac.jp)

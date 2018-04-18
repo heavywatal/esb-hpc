@@ -6,11 +6,12 @@ weight = 5
 
 ## Getting Started
 
+1. Prepare an SSH key pair on your local computer.
+1. Send the public key (`id_ed25519.pub` or `authorized_keys`)
+   to [the administrator](mailto:iwasakiwt@soken.ac.jp?subject=[metal-sokendai] ssh public key).
 1. Complete [the online registration form](https://goo.gl/forms/kxe6AWalGjH4wg5t2).
 1. Accept the invitation to [the user mailing list](https://groups.google.com/forum/#!forum/metal-sokendai).
-1. Login to the server with the preset password: `ssh <USERNAME>@metal.campus.soken.ac.jp`
-1. Change your password: `passwd`
-1. Configure SSH public key
+1. Login to the server: `ssh <USERNAME>@metal.campus.soken.ac.jp`
 
 <!--more-->
 
