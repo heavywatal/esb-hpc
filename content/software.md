@@ -66,4 +66,14 @@ The environment variable `PATH` for the `bin` is preset for all users.
 - emacs 25.3
 - nano 2.9.5
 
-### Bioinfomatics tools
+### Bioinformatics tools
+
+- bedtools
+- bwa
+- blast
+- hisat2
+- htslib
+- mafft
+- RAxML
+- repeatmasker
+- samtools
