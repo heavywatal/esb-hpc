@@ -59,11 +59,10 @@ Usage
 <h2 id="getting-started">Getting Started</h2>
 
 <ol>
+<li><a href="#how-to-setup-ssh-keys">Prepare an SSH key pair on your local computer</a>.</li>
 <li>Complete <a href="https://goo.gl/forms/kxe6AWalGjH4wg5t2">the online registration form</a>.</li>
 <li>Accept the invitation to <a href="https://groups.google.com/forum/#!forum/metal-sokendai">the user mailing list</a>.</li>
-<li>Login to the server with the preset password: <code>ssh &lt;USERNAME&gt;@metal.campus.soken.ac.jp</code></li>
-<li>Change your password: <code>passwd</code></li>
-<li>Configure SSH public key</li>
+<li>Login to the server: <code>ssh &lt;USERNAME&gt;@metal.campus.soken.ac.jp</code></li>
 </ol>
 
 <p></p>
@@ -78,6 +77,37 @@ You don&rsquo;t need to transfer your data to each compute node.</li>
 <li><strong>100GB</strong> disk space is allocated for each user.
 The size may be changed in the future.</li>
 </ul>
+
+<h2 id="how-to-setup-ssh-keys">How to setup SSH keys</h2>
+
+<ol>
+<li><p>Execute the following command on your local computer:</p>
+
+<pre><code>% ssh-keygen -t ed25519 -N ''
+</code></pre>
+
+<p>Press <kbd>return</kbd> to accept the default name of the key file:</p>
+
+<pre><code>Generating public/private ed25519 key pair.
+Enter file in which to save the key (~/.ssh/id_ed25519): # return
+Your identification has been saved in ~/.ssh/id_ed25519.
+Your public key has been saved in ~/.ssh/id_ed25519.pub.
+</code></pre></li>
+
+<li><p>Check the created keys:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">% ls -al ~/.ssh
+drwx------ <span class="m">11</span> winston staff <span class="m">374</span> Apr <span class="m">04</span> <span class="m">10</span>:00 ./
+-rw-------  <span class="m">1</span> winston staff <span class="m">399</span> Apr <span class="m">04</span> <span class="m">10</span>:00 id_ed25519
+-rw-r--r--  <span class="m">1</span> winston staff  <span class="m">92</span> Apr <span class="m">04</span> <span class="m">10</span>:00 id_ed25519.pub</code></pre></div>
+<p>The permissions of <code>~/.ssh</code> and <code>~/.ssh/id_ed25519</code> must be <code>700</code> and <code>600</code>, respectively.</p></li>
+
+<li><p>Copy and paste the whole content of the public key (<strong>NOT</strong> private key) to the online registration form.
+For example, <code>pbcopy</code> command is useful on macOS:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">% cat ~/.ssh/id_ed25519.pub <span class="p">|</span> pbcopy</code></pre></div></li>
+
+<li><p>After the administrator add your public key to your <code>~/.ssh/authorized_keys</code> on the server,
+you can login from the local computer with the private key <code>~/.ssh/id_ed25519</code>.</p></li>
+</ol>
 
 <h2 id="how-to-submit-a-job">How to submit a job</h2>
 
