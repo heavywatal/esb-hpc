@@ -15,6 +15,7 @@ weight = 5
 
 ## Basics
 
+- The server is accessible only from the ESB campus LAN.
 - All the computational tasks should be managed by the PBS job scheduler (see below).
   Do **NOT execute programs directly on the head node**.
 - Your home directory `~/` is shared with all the nodes.
