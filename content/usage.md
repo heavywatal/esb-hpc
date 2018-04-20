@@ -56,6 +56,14 @@ weight = 5
 1.  After the administrator add your public key to your `~/.ssh/authorized_keys` on the server,
     you can login from the local computer with the private key `~/.ssh/id_ed25519`.
 
+1.  (Optional) Create `~/.ssh/config` on your local computer:
+    ```
+    Host metal
+      Hostname metal.campus.soken.ac.jp
+      User your_username
+    ```
+    Then you can login to the server with the shorter command: `ssh metal`.
+
 
 ## How to submit a job
 
