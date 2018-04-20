@@ -34,7 +34,7 @@ Some tools are available in newer version. See below.
 
 `/opt/pbs`
 
-[PBS Professional](http://pbspro.org/)
+[PBS Professional](http://pbspro.org/) 14.0.1
 
 
 ## Additional Tools

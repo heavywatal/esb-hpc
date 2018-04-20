@@ -65,6 +65,78 @@ weight = 5
     Then you can login to the server with the shorter command: `ssh metal`.
 
 
-## How to submit a job
+## PBS job scheduler
 
-https://www.google.co.jp/search?q=pbs+scheduler
+[Documentation](https://www.google.co.jp/search?q=pbs+professional+14)
+
+### Check ths system status
+
+```
+% pbsnodes -aSj
+```
+
+### `qsub`: Submit a job
+
+You can submit a job from command line or by using scripts:
+```sh
+% qsub -S /bin/sh -N jobname -- /path/to/your/executable [args...]
+    # or
+% qsub hello.sh
+```
+
+An example job script `hello.sh`:
+```sh
+#!/bin/sh
+#PBS -S /bin/sh
+#PBS -N hello-world
+#PBS -l select=1:ncpus=4:mem=2gb
+
+pwd
+cd $PBS_O_WORKDIR
+pwd
+echo "Hello, world!"
+sleep 600
+```
+
+Useful options and environment variables:
+
+`-l ***`
+: to request resources.
+
+`-N job_name`
+: to set job's name.
+
+`-J 1-n`
+: to declare the job is an array job with size `n`.
+
+`-v VARIABLE=value`
+: to export environment variables to the job.
+
+`-o ***`, `-e ***`
+: to specify the path for the standard output/error stream.
+  By default, they are writen to the current working directory where `qsub` was executed,
+  i.e., `${PBS_O_WORKDIR}/${PBS_JOBNAME}.o<sequence_number>`
+
+`PBS_JOBID`
+: the ID of the job.
+
+`PBS_JOBNAME`
+: the name of the job.
+
+`PBS_O_WORKDIR`
+: the working directory where `qsub` was executed.
+
+See `man qsub` for more details.
+
+
+### `qstat`: Check the status of jobs
+
+```sh
+% qstat
+```
+
+### `qdel`: Delete a job
+
+```sh
+% qdel 9
+```
