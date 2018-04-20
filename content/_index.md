@@ -8,8 +8,9 @@ weight = 1
 
 ## News
 
-2018-04-XX
+2018-04-20
 : User registration started.
+
 
 ## Contact
 

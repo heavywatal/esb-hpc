@@ -6,7 +6,7 @@ weight = 5
 
 ## Getting Started
 
-1. [Prepare an SSH key pair on your local computer](#how-to-setup-ssh-keys).
+1. [Prepare an SSH key pair on your local computer]({{< relref "usage.md#how-to-setup-ssh-keys" >}}).
 1. Complete [the online registration form](https://goo.gl/forms/kxe6AWalGjH4wg5t2).
 1. Accept the invitation to [the user mailing list](https://groups.google.com/forum/#!forum/metal-sokendai).
 1. Login to the server: `ssh <USERNAME>@metal.campus.soken.ac.jp`
