@@ -45,7 +45,7 @@ The environment variable `PATH` for the `bin` is preset for all users.
 
 ### Compilers, Interpreters, and Libraries
 
-- gcc 5.5.0, 7.3.0
+- gcc 5.5
 - clang 6.0
 - python 3.6
     - numpy
@@ -69,6 +69,7 @@ The environment variable `PATH` for the `bin` is preset for all users.
 ### Bioinformatics tools
 
 - bedtools
+- bowtie2
 - bwa
 - blast
 - hisat2
