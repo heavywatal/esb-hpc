@@ -13,15 +13,19 @@ weight = 5
 
 <!--more-->
 
-## Basics
+## Notes
 
-- The server is accessible only from the ESB campus LAN.
-- All the computational tasks should be managed by the PBS job scheduler (see below).
-  Do **NOT execute programs directly on the head node**.
-- Your home directory `~/` is shared with all the nodes.
-  You don't need to transfer your data to each compute node.
+- The server is accessible **only from the ESB campus LAN**.
+- It is recommended to use
+  [**rsync**](https://www.google.co.jp/search?q=rsync+ssh)
+  to transfer your files between your local computer and the server.
+- Your home directory `~/` on the head node is shared with the compute nodes.
+  You don't have to care about data transfer between nodes within the system.
 - **100GB** disk space is allocated for each user.
   The size may be changed in the future.
+- **Do NOT execute programs directly on the head node**.
+  All the computational tasks must be managed by the PBS job scheduler
+  [(see below)](#pbs-job-scheduler).
 
 
 ## How to setup SSH keys
@@ -56,14 +60,17 @@ weight = 5
 
 1.  After the administrator add your public key to your `~/.ssh/authorized_keys` on the server,
     you can login from the local computer with the private key `~/.ssh/id_ed25519`.
+    ```
+    % ssh your_username_on_metal@metal.campus.soken.ac.jp
+    ```
 
 1.  (Optional) Create `~/.ssh/config` on your local computer:
     ```
     Host metal
       Hostname metal.campus.soken.ac.jp
-      User your_username
+      User your_username_on_metal
     ```
-    Then you can login to the server with the shorter command: `ssh metal`.
+    Then you can login with the shorter command: `ssh metal`.
 
 
 ## PBS job scheduler
