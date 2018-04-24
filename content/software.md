@@ -80,6 +80,8 @@ The environment variable `PATH` for the `bin` is preset for all users.
 - mafft
 - paml
 - RAxML
-- repeatmasker
+- RepeatMasker
+- RepeatModeler
+- RepeatScout
 - samtools
 - varscan
