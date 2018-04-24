@@ -58,7 +58,7 @@ weight = 5
     % cat ~/.ssh/id_ed25519.pub | pbcopy
     ```
 
-1.  After the administrator add your public key to your `~/.ssh/authorized_keys` on the server,
+1.  After the administrator adds your public key to your `~/.ssh/authorized_keys` on the server,
     you can login from the local computer with the private key `~/.ssh/id_ed25519`.
     ```
     % ssh your_username_on_metal@metal.campus.soken.ac.jp

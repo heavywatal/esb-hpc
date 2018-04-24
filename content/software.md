@@ -24,7 +24,7 @@ CentOS 7.3 x86_64
     - libc++ 3.8.0 (EPEL)
     - python 2.7.5
     - ruby 2.0.0p648
-    - R 3.4.3 (EPEL)
+    - R 3.4.4 (EPEL)
 - Other tools
     - git 1.8.3.1
 
@@ -55,16 +55,17 @@ The environment variable `PATH` for the `bin` is preset for all users.
     - seaborn
     - biopython
     - Pillow
-- boost
-- eigen
+- boost ≥1.67
+- eigen ≥3.3.4
+- gsl ≥2.4
 
 ### General tools
 
-- tmux
-- cmake
-- git
-- emacs 25.3
-- nano 2.9.5
+- tmux ≥2.7
+- cmake ≥3.11
+- git ≥2.17
+- emacs ≥25.3
+- nano ≥2.9.5
 
 ### Bioinformatics tools
 
@@ -72,9 +73,13 @@ The environment variable `PATH` for the `bin` is preset for all users.
 - bowtie2
 - bwa
 - blast
+- gatk
 - hisat2
 - htslib
+- libsequence
 - mafft
+- paml
 - RAxML
 - repeatmasker
 - samtools
+- varscan
