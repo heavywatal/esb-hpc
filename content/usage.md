@@ -26,6 +26,9 @@ weight = 5
 - **Do NOT execute programs directly on the head node**.
   All the computational tasks must be managed by the PBS job scheduler
   [(see below)](#pbs-job-scheduler).
+- Check [the list of available softwares]({{< relref "software.md" >}}).
+  You can install additional softwares into your home directory,
+  or ask the administrator for system-wide installation.
 
 
 ## How to setup SSH keys

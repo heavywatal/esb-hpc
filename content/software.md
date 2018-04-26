@@ -48,13 +48,6 @@ The environment variable `PATH` for the `bin` is preset for all users.
 - gcc 5.5
 - clang 6.0
 - python 3.6
-    - numpy
-    - scipy
-    - pandas
-    - matplotlib
-    - seaborn
-    - biopython
-    - Pillow
 - boost ≥1.67
 - eigen ≥3.3.4
 - gsl ≥2.4
@@ -85,3 +78,28 @@ The environment variable `PATH` for the `bin` is preset for all users.
 - RepeatScout
 - samtools
 - varscan
+
+### Python packages
+
+`/home/linuxbrew/.linuxbrew/lib/python3.6/site-packages/`
+
+- numpy
+- scipy
+- pandas
+- matplotlib
+- seaborn
+- biopython
+- Pillow
+
+### R packages
+
+`/home/local/lib/R/library`
+
+- ape
+- BioConductor (Biostrings, GenomicRanges, *etc.*)
+- cowplot
+- igraph
+- Rcpp
+- rgl
+- rstan
+- tidyverse (ggplot2, dplyr, tidyr, *etc.*)
