@@ -49,6 +49,7 @@ The environment variable `PATH` for the `bin` is preset for all users.
 - gcc 5.5
 - clang 6.0 (libc++ is not available yet)
 - python 3.6
+- R 3.5
 - boost ≥1.67
 - eigen ≥3.3.4
 - gsl ≥2.4
@@ -94,7 +95,7 @@ The environment variable `PATH` for the `bin` is preset for all users.
 
 ### R packages
 
-`/home/local/lib/R/library`
+`/home/linuxbrew/.linuxbrew/lib/R/3.5/site-library`
 
 - ape
 - BioConductor (Biostrings, GenomicRanges, *etc.*)
