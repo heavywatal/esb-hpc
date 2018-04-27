@@ -21,6 +21,7 @@ CentOS 7.3 x86_64
     - nano 2.3.1
 - Compilers and interpreters
     - gcc 4.8.5
+    - clang 3.4.2 (EPEL)
     - libc++ 3.8.0 (EPEL)
     - python 2.7.5
     - ruby 2.0.0p648
@@ -46,7 +47,7 @@ The environment variable `PATH` for the `bin` is preset for all users.
 ### Compilers, Interpreters, and Libraries
 
 - gcc 5.5
-- clang 6.0
+- clang 6.0 (libc++ is not available yet)
 - python 3.6
 - boost ≥1.67
 - eigen ≥3.3.4

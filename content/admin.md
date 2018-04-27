@@ -8,6 +8,20 @@ draft = true
 
 - [Google Form](https://docs.google.com/forms/d/13PUga_MUGX5cuFJ5dUjMC9BC1P1cQN4rohS_g-AQIz8/edit)
 
+1.  Add the user (and his/her mentor) to
+    [metal-sokendai](https://groups.google.com/forum/#!forum/metal-sokendai):
+    "Manage" => "Invite members"
+    ```
+    Dear ______,
+
+    Please accept this invitation to create a user account on Metal system.
+    Various notifications such as server maintenance and updates will be provided with this mailing list.
+    You can also post questions and requests here.
+
+    Best,
+    Watal
+    ```
+
 1.  Create an account
     ```sh
     # NEWUSER=______
@@ -17,26 +31,26 @@ draft = true
 
 1.  Update NIS
     ```sh
-    # systemctl rpcbind restart
     # make -C /var/yp
     # ypbind -c
     # ypcat passwd
+    # systemctl restart rpcbind.service
     ```
 
 1.  Configure SSH
     ```sh
-    # mkdir /home/${NEWUSER}/.ssh
     # emacs /home/${NEWUSER}/.ssh/authorized_keys
-    # chmod 700 ${NEWUSER}/.ssh
-    # chmod 600 ${NEWUSER}/.ssh/authorized_keys
-    # chown -R ${NEWUSER}:users .ssh
+    # chmod 700 /home/${NEWUSER}/.ssh
+    # chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
+    # chown -R ${NEWUSER}:users /home/${NEWUSER}/.ssh
     ```
 
-1.  Send an email to the new user
-    ```nohighlight
+1.  Send an email:
+    ```
     Dear ______,
+    CC: Prof. ______,
 
-    Your account is ready.
+    You have been successfully registered as a user of Metal system.
     Try loggin in to the server with the following command:
 
     ssh ______@metal.campus.soken.ac.jp
