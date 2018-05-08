@@ -16,6 +16,8 @@ weight = 5
 ## Notes
 
 - The server is accessible **only from the ESB campus LAN**.
+- No graphical user interface (GUI) is available;
+  all the operation has to be carried out with a **command-line interface (CLI)**.
 - It is recommended to use
   [**rsync**](https://www.google.co.jp/search?q=rsync+ssh)
   to transfer your files between your local computer and the server.
