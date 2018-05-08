@@ -84,6 +84,7 @@ Software
 
 <ul>
 <li>gcc 4.8.5</li>
+<li>clang 3.4.2 (EPEL)</li>
 <li>libc++ 3.8.0 (EPEL)</li>
 <li>python 2.7.5</li>
 <li>ruby 2.0.0p648</li>
@@ -107,15 +108,17 @@ Software
 <h2 id="additional-tools">Additional Tools</h2>
 
 <p>Additional tools are installed with <a href="http://linuxbrew.sh/">Linuxbrew</a>
-to <code>/home/linuxbrew/.linuxbrew/</code>.
-The environment variable <code>PATH</code> for the <code>bin</code> is preset for all users.</p>
+to <code>/home/linuxbrew/.linuxbrew/</code> if available.
+Otherwise, they are manually installed to <code>/opt/local/</code>.
+The environment variable <code>PATH</code> for their <code>bin</code>s is preset for all users.</p>
 
 <h3 id="compilers-interpreters-and-libraries">Compilers, Interpreters, and Libraries</h3>
 
 <ul>
 <li>gcc 5.5</li>
-<li>clang 6.0</li>
+<li>clang 6.0 (libc++ is not available yet)</li>
 <li>python 3.6</li>
+<li>R 3.5</li>
 <li>boost ≥1.67</li>
 <li>eigen ≥3.3.4</li>
 <li>gsl ≥2.4</li>
@@ -149,6 +152,7 @@ The environment variable <code>PATH</code> for the <code>bin</code> is preset fo
 <li>RepeatModeler</li>
 <li>RepeatScout</li>
 <li>samtools</li>
+<li>structure</li>
 <li>varscan</li>
 </ul>
 
@@ -168,7 +172,7 @@ The environment variable <code>PATH</code> for the <code>bin</code> is preset fo
 
 <h3 id="r-packages">R packages</h3>
 
-<p><code>/home/local/lib/R/library</code></p>
+<p><code>/home/linuxbrew/.linuxbrew/lib/R/3.5/site-library</code></p>
 
 <ul>
 <li>ape</li>
