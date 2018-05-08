@@ -58,3 +58,20 @@ draft = true
     Best,
     Watal
     ```
+
+
+## Install softwares
+
+### Linuxbrew
+
+- If the software is available on Linuxbrew, use it.
+- `brew` must be executed by a non-root user.
+
+
+### Others
+
+- Download an archive to `/root/Downloads/`
+- Install it with a prefix `/opt/local`
+- If the software does not provide any installation method,
+  move the whole directory to `/opt/local/Cellar/` with a version number,
+  and create symlinks to `/opt/local/bin`, `include`, `lib`, and so on.

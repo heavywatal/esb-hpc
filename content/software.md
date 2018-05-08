@@ -41,8 +41,9 @@ Some tools are available in newer version. See below.
 ## Additional Tools
 
 Additional tools are installed with [Linuxbrew](http://linuxbrew.sh/)
-to `/home/linuxbrew/.linuxbrew/`.
-The environment variable `PATH` for the `bin` is preset for all users.
+to `/home/linuxbrew/.linuxbrew/` if available.
+Otherwise, they are manually installed to `/opt/local/`.
+The environment variable `PATH` for their `bin`s is preset for all users.
 
 ### Compilers, Interpreters, and Libraries
 
@@ -79,6 +80,7 @@ The environment variable `PATH` for the `bin` is preset for all users.
 - RepeatModeler
 - RepeatScout
 - samtools
+- structure
 - varscan
 
 ### Python packages
