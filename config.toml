@@ -9,10 +9,14 @@ disableKinds = ["RSS"]
 pygmentsCodefences = true
 pygmentsUseClasses = true
 
+[author]
+name = "Watal M. Iwasaki"
+
 [blackfriday]
 fractions = false
 plainIDAnchors = true
 
 [params]
-logo_src = "sokendai-logo.png"
-logo_alt = "sokendai-logo.png"
+logo_src = "android-chrome-192x192.png"
+logo_alt = "android-chrome-192x192.png"
+theme_color = "#1a4694"
