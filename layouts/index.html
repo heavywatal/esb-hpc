@@ -1,5 +1,4 @@
-{{ partial "header.html" . }}
-<main>
+{{ define "main" }}
 <article>
 <header>
 <h1><a href="{{ .URL }}">
@@ -14,6 +13,4 @@
 </aside>
 {{ end }}
 </article>
-</main>
-{{ partial "nav.html" . }}
-{{ partialCached "footer.html" . }}
+{{ end }}
