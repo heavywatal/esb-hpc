@@ -71,7 +71,25 @@ draft = true
 ### Others
 
 - Download an archive to `/root/Downloads/`
-- Install it with a prefix `/opt/local`
+- Install it with a prefix `/home/local`
 - If the software does not provide any installation method,
-  move the whole directory to `/opt/local/Cellar/` with a version number,
-  and create symlinks to `/opt/local/bin`, `include`, `lib`, and so on.
+  move the whole directory to `/home/local/Cellar/` with a version number,
+  and create symlinks to `/home/local/bin`, `include`, `lib`, and so on.
+
+
+## PBS
+
+`/etc/pbs.conf` in head node:
+```ini
+PBS_SERVER=metal
+PBS_START_SERVER=1
+PBS_START_SCHED=1
+PBS_START_COMM=1
+PBS_START_MOM=0
+PBS_EXEC=/opt/pbs
+PBS_HOME=/var/spool/pbs
+PBS_CORE_LIMIT=unlimited
+PBS_SCP=/bin/rcp
+```
+
+`PBS_START_MOM=1` in compute nodes.

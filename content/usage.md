@@ -92,7 +92,7 @@ weight = 5
 
 You can submit a job from command line or by using scripts:
 ```sh
-% qsub -S /bin/sh -N jobname -- /path/to/your/executable [args...]
+% qsub -N jobname -j oe -- /path/to/your/executable [args...]
     # or
 % qsub hello.sh
 ```
@@ -100,9 +100,9 @@ You can submit a job from command line or by using scripts:
 An example job script `hello.sh`:
 ```sh
 #!/bin/sh
-#PBS -S /bin/sh
 #PBS -N hello-world
-#PBS -l select=1:ncpus=4:mem=2gb
+#PBS -j oe
+#PBS -l select=1:ncpus=1:mem=1gb
 
 pwd
 cd $PBS_O_WORKDIR
@@ -111,24 +111,63 @@ echo "Hello, world!"
 sleep 600
 ```
 
-Useful options and environment variables:
+An example of an array job `array.sh`:
+```sh
+#!/bin/sh
+#PBS -N array-ms
+#PBS -j oe
+#PBS -l select=1:ncpus=1:mem=1gb
+#PBS -J 0-3
 
-`-l ***`
-: to request resources.
+cd $PBS_O_WORKDIR
+param_range=($(seq 5.0 0.5 6.5))  # (5.0, 5.5, 6.0, 6.5)
+theta=${param_range[@]:${PBS_ARRAY_INDEX}:1}
+ms 4 2 -t $theta
+```
+
+An equivalent job script in Python:
+```py
+#!/usr/bin/env python3
+#PBS -N array-ms-py
+#PBS -j oe
+#PBS -l select=1:ncpus=1:mem=1gb
+#PBS -J 0-3
+import os
+import subprocess
+import numpy as np
+
+os.chdir(os.getenv('PBS_O_WORKDIR', '.'))
+array_index = int(os.getenv('PBS_ARRAY_INDEX', '0'))
+param_range = np.linspace(5.0, 6.5, 4)  # [5.0, 5.5, 6.0, 6.5]
+theta = param_range[array_index]
+cmd = 'ms 4 2 -t {}'.format(theta)
+proc = subprocess.run(cmd.split(), stdout=subprocess.PIPE)
+print(proc.stdout.decode(), end='')
+```
+
+Useful options and environment variables:
 
 `-N job_name`
 : to set job's name.
-
-`-J 1-n`
-: to declare the job is an array job with size `n`.
-
-`-v VARIABLE=value`
-: to export environment variables to the job.
 
 `-o ***`, `-e ***`
 : to specify the path for the standard output/error stream.
   By default, they are writen to the current working directory where `qsub` was executed,
   i.e., `${PBS_O_WORKDIR}/${PBS_JOBNAME}.o<sequence_number>`
+
+`-j oe`
+: to merge the standard error stream into the standard output stream.
+  It is equivalent to `2>&1` in shell redirection.
+
+`-J 0-3`
+: to declare the job is an array job (with size 4 in this example).
+  A current index (`0`, `1`, ...) can be obtained via `PBS_ARRAY_INDEX`.
+
+`-l ***`
+: to request resources.
+
+`-v VARIABLE=value`
+: to export environment variables to the job.
 
 `PBS_JOBID`
 : the ID of the job.
@@ -137,7 +176,10 @@ Useful options and environment variables:
 : the name of the job.
 
 `PBS_O_WORKDIR`
-: the working directory where `qsub` was executed.
+: the working directory where `qsub` was called.
+  By default, stdout/stderr are copied to here,
+  although jobs are executed in `$HOME`.
+  You may want to `cd $PBS_O_WORKDIR` in many cases.
 
 See `man qsub` for more details.
 
