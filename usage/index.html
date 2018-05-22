@@ -35,9 +35,9 @@ MathJax.Hub.Config({
 </script>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML"></script>
 
-<script src="https://use.fontawesome.com/releases/v5.0.10/js/brands.js"></script>
-<script src="https://use.fontawesome.com/releases/v5.0.10/js/solid.js"></script>
-<script src="https://use.fontawesome.com/releases/v5.0.10/js/fontawesome.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.0.13/js/brands.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
 
 </head>
 <body>
@@ -46,7 +46,6 @@ MathJax.Hub.Config({
 Metal — HPC cluster of ESB, SOKENDAI
 </a></h1>
 </header>
-
 <main>
 <article>
 <header><h1><a href="/restricted_access/esb-hpc/usage/">
@@ -143,41 +142,76 @@ you can login from the local computer with the private key <code>~/.ssh/id_ed255
 <h3 id="qsub-submit-a-job"><code>qsub</code>: Submit a job</h3>
 
 <p>You can submit a job from command line or by using scripts:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">% qsub -S /bin/sh -N jobname -- /path/to/your/executable <span class="o">[</span>args...<span class="o">]</span>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">% qsub -N jobname -j oe -- /path/to/your/executable <span class="o">[</span>args...<span class="o">]</span>
     <span class="c1"># or
 </span><span class="c1"></span>% qsub hello.sh</code></pre></div>
 <p>An example job script <code>hello.sh</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
-</span><span class="cp"></span><span class="c1">#PBS -S /bin/sh
-</span><span class="c1">#PBS -N hello-world
-</span><span class="c1">#PBS -l select=1:ncpus=4:mem=2gb
+</span><span class="cp"></span><span class="c1">#PBS -N hello-world
+</span><span class="c1">#PBS -j oe
+</span><span class="c1">#PBS -l select=1:ncpus=1:mem=1gb
 </span><span class="c1"></span>
 <span class="nb">pwd</span>
 <span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
 <span class="nb">pwd</span>
 <span class="nb">echo</span> <span class="s2">&#34;Hello, world!&#34;</span>
 sleep <span class="m">600</span></code></pre></div>
+<p>An example of an array job <code>array.sh</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
+</span><span class="cp"></span><span class="c1">#PBS -N array-ms
+</span><span class="c1">#PBS -j oe
+</span><span class="c1">#PBS -l select=1:ncpus=1:mem=1gb
+</span><span class="c1">#PBS -J 0-3
+</span><span class="c1"></span>
+<span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
+<span class="nv">param_range</span><span class="o">=(</span><span class="k">$(</span>seq <span class="m">5</span>.0 <span class="m">0</span>.5 <span class="m">6</span>.5<span class="k">)</span><span class="o">)</span>  <span class="c1"># (5.0, 5.5, 6.0, 6.5)
+</span><span class="c1"></span><span class="nv">theta</span><span class="o">=</span><span class="si">${</span><span class="nv">param_range</span><span class="p">[@]:</span><span class="si">${</span><span class="nv">PBS_ARRAY_INDEX</span><span class="si">}</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span>
+ms <span class="m">4</span> <span class="m">2</span> -t <span class="nv">$theta</span></code></pre></div>
+<p>An equivalent job script in Python:</p>
+<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1">#PBS -N array-ms-py</span>
+<span class="c1">#PBS -j oe</span>
+<span class="c1">#PBS -l select=1:ncpus=1:mem=1gb</span>
+<span class="c1">#PBS -J 0-3</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;PBS_O_WORKDIR&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">))</span>
+<span class="n">array_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;PBS_ARRAY_INDEX&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">))</span>
+<span class="n">param_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># [5.0, 5.5, 6.0, 6.5]</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">param_range</span><span class="p">[</span><span class="n">array_index</span><span class="p">]</span>
+<span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;ms 4 2 -t {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code></pre></div>
 <p>Useful options and environment variables:</p>
 
 <dl>
-<dt><code>-l ***</code></dt>
-<dd>to request resources.</dd>
 <dt><code>-N job_name</code></dt>
 <dd>to set job&rsquo;s name.</dd>
-<dt><code>-J 1-n</code></dt>
-<dd>to declare the job is an array job with size <code>n</code>.</dd>
-<dt><code>-v VARIABLE=value</code></dt>
-<dd>to export environment variables to the job.</dd>
 <dt><code>-o ***</code>, <code>-e ***</code></dt>
 <dd>to specify the path for the standard output/error stream.
 By default, they are writen to the current working directory where <code>qsub</code> was executed,
 i.e., <code>${PBS_O_WORKDIR}/${PBS_JOBNAME}.o&lt;sequence_number&gt;</code></dd>
+<dt><code>-j oe</code></dt>
+<dd>to merge the standard error stream into the standard output stream.
+It is equivalent to <code>2&gt;&amp;1</code> in shell redirection.</dd>
+<dt><code>-J 0-3</code></dt>
+<dd>to declare the job is an array job (with size 4 in this example).
+A current index (<code>0</code>, <code>1</code>, &hellip;) can be obtained via <code>PBS_ARRAY_INDEX</code>.</dd>
+<dt><code>-l ***</code></dt>
+<dd>to request resources.</dd>
+<dt><code>-v VARIABLE=value</code></dt>
+<dd>to export environment variables to the job.</dd>
 <dt><code>PBS_JOBID</code></dt>
 <dd>the ID of the job.</dd>
 <dt><code>PBS_JOBNAME</code></dt>
 <dd>the name of the job.</dd>
 <dt><code>PBS_O_WORKDIR</code></dt>
-<dd>the working directory where <code>qsub</code> was executed.</dd>
+<dd>the working directory where <code>qsub</code> was called.
+By default, stdout/stderr are copied to here,
+although jobs are executed in <code>$HOME</code>.
+You may want to <code>cd $PBS_O_WORKDIR</code> in many cases.</dd>
 </dl>
 
 <p>See <code>man qsub</code> for more details.</p>
@@ -199,8 +233,6 @@ i.e., <code>${PBS_O_WORKDIR}/${PBS_JOBNAME}.o&lt;sequence_number&gt;</code></dd>
 
 <div><a href="/restricted_access/esb-hpc/software/">Software</a></div>
 </nav>
-
 <footer><small></small></footer>
 </body>
 </html>
-
