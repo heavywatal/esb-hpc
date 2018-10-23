@@ -8,7 +8,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/restricted_access/esb-hpc/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="/restricted_access/esb-hpc/favicon-32x32.png" sizes="32x32">
 <link rel="manifest" href="/restricted_access/esb-hpc/manifest.json">
-<link rel="mask-icon" href="/restricted_access/esb-hpc/safari-pinned-tab.svg" color="#1a4694">
 <meta name="theme-color" content="#1a4694">
 <meta name="author" content="Watal M. Iwasaki">
 <meta property="og:title" content="Usage">
@@ -20,7 +19,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="">
 <meta name="twitter:creator" content="">
-<meta name="generator" content="Hugo 0.41-DEV" />
+<meta name="generator" content="Hugo 0.50-DEV" />
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   showProcessingMessages: false,
@@ -33,11 +32,11 @@ MathJax.Hub.Config({
   }
 });
 </script>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML"></script>
 
-<script src="https://use.fontawesome.com/releases/v5.0.13/js/brands.js"></script>
-<script src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
-<script src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.4.1/js/brands.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.4.1/js/solid.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.4.1/js/fontawesome.js"></script>
 
 </head>
 <body>
@@ -92,7 +91,7 @@ or ask the administrator for system-wide installation.</li>
 <ol>
 <li><p>Execute the following command on your local computer:</p>
 
-<pre><code>% ssh-keygen -t ed25519 -N ''
+<pre><code>ssh-keygen -t ed25519 -N ''
 </code></pre>
 
 <p>Press <kbd>return</kbd> to accept the default name of the key file:</p>
@@ -104,20 +103,20 @@ Your public key has been saved in ~/.ssh/id_ed25519.pub.
 </code></pre></li>
 
 <li><p>Check the created keys:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">% ls -al ~/.ssh
-drwx------ <span class="m">11</span> winston staff <span class="m">374</span> Apr <span class="m">04</span> <span class="m">10</span>:00 ./
--rw-------  <span class="m">1</span> winston staff <span class="m">399</span> Apr <span class="m">04</span> <span class="m">10</span>:00 id_ed25519
--rw-r--r--  <span class="m">1</span> winston staff  <span class="m">92</span> Apr <span class="m">04</span> <span class="m">10</span>:00 id_ed25519.pub</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">ls -al ~/.ssh
+<span class="c1"># drwx------ 11 winston staff 374 Apr 04 10:00 ./</span>
+<span class="c1"># -rw-------  1 winston staff 399 Apr 04 10:00 id_ed25519</span>
+<span class="c1"># -rw-r--r--  1 winston staff  92 Apr 04 10:00 id_ed25519.pub</span></code></pre></div>
 <p>The permissions of <code>~/.ssh</code> and <code>~/.ssh/id_ed25519</code> must be <code>700</code> and <code>600</code>, respectively.</p></li>
 
 <li><p>Copy and paste the whole content of the public key (<strong>NOT</strong> private key) to the online registration form.
 For example, <code>pbcopy</code> command is useful on macOS:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">% cat ~/.ssh/id_ed25519.pub <span class="p">|</span> pbcopy</code></pre></div></li>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">cat ~/.ssh/id_ed25519.pub <span class="p">|</span> pbcopy</code></pre></div></li>
 
 <li><p>After the administrator adds your public key to your <code>~/.ssh/authorized_keys</code> on the server,
 you can login from the local computer with the private key <code>~/.ssh/id_ed25519</code>.</p>
 
-<pre><code>% ssh your_username_on_metal@metal.campus.soken.ac.jp
+<pre><code>ssh your_username_on_metal@metal.campus.soken.ac.jp
 </code></pre></li>
 
 <li><p>(Optional) Create <code>~/.ssh/config</code> on your local computer:</p>
@@ -136,36 +135,36 @@ you can login from the local computer with the private key <code>~/.ssh/id_ed255
 
 <h3 id="check-ths-system-status">Check ths system status</h3>
 
-<pre><code>% pbsnodes -aSj
+<pre><code>pbsnodes -aSj
 </code></pre>
 
 <h3 id="qsub-submit-a-job"><code>qsub</code>: Submit a job</h3>
 
 <p>You can submit a job from command line or by using scripts:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">% qsub -N jobname -j oe -- /path/to/your/executable <span class="o">[</span>args...<span class="o">]</span>
-    <span class="c1"># or
-</span><span class="c1"></span>% qsub hello.sh</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">qsub -N jobname -j oe -- /path/to/your/executable <span class="o">[</span>args...<span class="o">]</span>
+    <span class="c1"># or</span>
+qsub hello.sh</code></pre></div>
 <p>An example job script <code>hello.sh</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
-</span><span class="cp"></span><span class="c1">#PBS -N hello-world
-</span><span class="c1">#PBS -j oe
-</span><span class="c1">#PBS -l select=1:ncpus=1:mem=1gb
-</span><span class="c1"></span>
+</span><span class="cp"></span><span class="c1">#PBS -N hello-world</span>
+<span class="c1">#PBS -j oe</span>
+<span class="c1">#PBS -l select=1:ncpus=1:mem=1gb</span>
+
 <span class="nb">pwd</span>
 <span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
 <span class="nb">pwd</span>
 <span class="nb">echo</span> <span class="s2">&#34;Hello, world!&#34;</span>
-sleep <span class="m">600</span></code></pre></div>
+sleep <span class="m">60</span></code></pre></div>
 <p>An example of an array job <code>array.sh</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
-</span><span class="cp"></span><span class="c1">#PBS -N array-ms
-</span><span class="c1">#PBS -j oe
-</span><span class="c1">#PBS -l select=1:ncpus=1:mem=1gb
-</span><span class="c1">#PBS -J 0-3
-</span><span class="c1"></span>
+</span><span class="cp"></span><span class="c1">#PBS -N array-ms</span>
+<span class="c1">#PBS -j oe</span>
+<span class="c1">#PBS -l select=1:ncpus=1:mem=1gb</span>
+<span class="c1">#PBS -J 0-3</span>
+
 <span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
-<span class="nv">param_range</span><span class="o">=(</span><span class="k">$(</span>seq <span class="m">5</span>.0 <span class="m">0</span>.5 <span class="m">6</span>.5<span class="k">)</span><span class="o">)</span>  <span class="c1"># (5.0, 5.5, 6.0, 6.5)
-</span><span class="c1"></span><span class="nv">theta</span><span class="o">=</span><span class="si">${</span><span class="nv">param_range</span><span class="p">[@]:</span><span class="si">${</span><span class="nv">PBS_ARRAY_INDEX</span><span class="si">}</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span>
+<span class="nv">param_range</span><span class="o">=(</span><span class="k">$(</span>seq <span class="m">5</span>.0 <span class="m">0</span>.5 <span class="m">6</span>.5<span class="k">)</span><span class="o">)</span>  <span class="c1"># (5.0, 5.5, 6.0, 6.5)</span>
+<span class="nv">theta</span><span class="o">=</span><span class="si">${</span><span class="nv">param_range</span><span class="p">[@]:</span><span class="si">${</span><span class="nv">PBS_ARRAY_INDEX</span><span class="si">}</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span>
 ms <span class="m">4</span> <span class="m">2</span> -t <span class="nv">$theta</span></code></pre></div>
 <p>An equivalent job script in Python:</p>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ch">#!/usr/bin/env python3</span>
@@ -217,9 +216,13 @@ You may want to <code>cd $PBS_O_WORKDIR</code> in many cases.</dd>
 <p>See <code>man qsub</code> for more details.</p>
 
 <h3 id="qstat-check-the-status-of-jobs"><code>qstat</code>: Check the status of jobs</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">% qstat</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># List</span>
+qstat -x
+
+<span class="c1"># See the detail of a job</span>
+qstat -fx &lt;PBS_JOBID&gt;</code></pre></div>
 <h3 id="qdel-delete-a-job"><code>qdel</code>: Delete a job</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">% qdel <span class="m">9</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">qdel &lt;PBS_JOBID&gt;</code></pre></div>
 </article>
 </main>
 
