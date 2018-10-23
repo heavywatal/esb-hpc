@@ -37,7 +37,7 @@ weight = 5
 
 1.  Execute the following command on your local computer:
     ```
-    % ssh-keygen -t ed25519 -N ''
+    ssh-keygen -t ed25519 -N ''
     ```
 
     Press <kbd>return</kbd> to accept the default name of the key file:
@@ -50,23 +50,23 @@ weight = 5
 
 1.  Check the created keys:
     ```sh
-    % ls -al ~/.ssh
-    drwx------ 11 winston staff 374 Apr 04 10:00 ./
-    -rw-------  1 winston staff 399 Apr 04 10:00 id_ed25519
-    -rw-r--r--  1 winston staff  92 Apr 04 10:00 id_ed25519.pub
+    ls -al ~/.ssh
+    # drwx------ 11 winston staff 374 Apr 04 10:00 ./
+    # -rw-------  1 winston staff 399 Apr 04 10:00 id_ed25519
+    # -rw-r--r--  1 winston staff  92 Apr 04 10:00 id_ed25519.pub
     ```
     The permissions of `~/.ssh` and `~/.ssh/id_ed25519` must be `700` and `600`, respectively.
 
 1.  Copy and paste the whole content of the public key (**NOT** private key) to the online registration form.
     For example, `pbcopy` command is useful on macOS:
     ```sh
-    % cat ~/.ssh/id_ed25519.pub | pbcopy
+    cat ~/.ssh/id_ed25519.pub | pbcopy
     ```
 
 1.  After the administrator adds your public key to your `~/.ssh/authorized_keys` on the server,
     you can login from the local computer with the private key `~/.ssh/id_ed25519`.
     ```
-    % ssh your_username_on_metal@metal.campus.soken.ac.jp
+    ssh your_username_on_metal@metal.campus.soken.ac.jp
     ```
 
 1.  (Optional) Create `~/.ssh/config` on your local computer:
@@ -85,16 +85,16 @@ weight = 5
 ### Check ths system status
 
 ```
-% pbsnodes -aSj
+pbsnodes -aSj
 ```
 
 ### `qsub`: Submit a job
 
 You can submit a job from command line or by using scripts:
 ```sh
-% qsub -N jobname -j oe -- /path/to/your/executable [args...]
+qsub -N jobname -j oe -- /path/to/your/executable [args...]
     # or
-% qsub hello.sh
+qsub hello.sh
 ```
 
 An example job script `hello.sh`:
@@ -108,7 +108,7 @@ pwd
 cd $PBS_O_WORKDIR
 pwd
 echo "Hello, world!"
-sleep 600
+sleep 60
 ```
 
 An example of an array job `array.sh`:
@@ -187,11 +187,15 @@ See `man qsub` for more details.
 ### `qstat`: Check the status of jobs
 
 ```sh
-% qstat
+# List
+qstat -x
+
+# See the detail of a job
+qstat -fx <PBS_JOBID>
 ```
 
 ### `qdel`: Delete a job
 
 ```sh
-% qdel 9
+qdel <PBS_JOBID>
 ```

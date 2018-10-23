@@ -93,3 +93,22 @@ PBS_SCP=/bin/rcp
 ```
 
 `PBS_START_MOM=1` in compute nodes.
+
+
+### Configuring the Server and Queues
+
+```sh
+man /opt/pbs/bin/qmgr
+
+# interactively
+qmgr
+
+# with stdin
+echo "print server" | qmgr
+qmgr < input_file
+
+# with command-line arguments
+qmgr -c "print server"
+qmgr -c "set server job_history_enable=True"
+qmgr -c "set server job_history_duration=720:00:00"
+```
