@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="">
 <meta name="twitter:creator" content="">
-<meta name="generator" content="Hugo 0.50-DEV" />
+<meta name="generator" content="Hugo 0.51-DEV" />
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   showProcessingMessages: false,
@@ -41,7 +41,7 @@ MathJax.Hub.Config({
 </head>
 <body>
 <header><h1><a href="/restricted_access/esb-hpc/">
-<img class="logo" src="/restricted_access/esb-hpc/android-chrome-192x192.png" alt="android-chrome-192x192.png">
+<img class="logo" src="/restricted_access/esb-hpc/sokendai-logomark.svg" alt="sokendai-logomark.svg">
 Metal — HPC cluster of ESB, SOKENDAI
 </a></h1>
 </header>
@@ -57,6 +57,7 @@ Usage
 <h2 id="getting-started">Getting Started</h2>
 
 <ol>
+<li>Read through all the pages in this document.</li>
 <li><a href="/restricted_access/esb-hpc/usage/#how-to-setup-ssh-keys">Prepare an SSH key pair on your local computer</a>.</li>
 <li>Complete <a href="https://goo.gl/forms/kxe6AWalGjH4wg5t2">the online registration form</a>.</li>
 <li>Accept the invitation to <a href="https://groups.google.com/forum/#!forum/metal-sokendai">the user mailing list</a>.</li>
@@ -68,9 +69,10 @@ Usage
 <h2 id="notes">Notes</h2>
 
 <ul>
-<li>The server is accessible <strong>only from the ESB campus LAN</strong>.</li>
 <li>No graphical user interface (GUI) is available;
-all the operation has to be carried out with a <strong>command-line interface (CLI)</strong>.</li>
+all the operation has to be carried out with a <strong>command-line interface (CLI)</strong>.
+Basic knowledge of shell scripting is required.</li>
+<li>The server is accessible <strong>only from the ESB campus LAN</strong>.</li>
 <li>It is recommended to use
 <a href="https://www.google.co.jp/search?q=rsync+ssh"><strong>rsync</strong></a>
 to transfer your files between your local computer and the server.</li>
@@ -84,6 +86,9 @@ All the computational tasks must be managed by the PBS job scheduler
 <li>Check <a href="/restricted_access/esb-hpc/software/">the list of available softwares</a>.
 You can install additional softwares into your home directory,
 or ask the administrator for system-wide installation.</li>
+<li>Feel free to post any question and request to
+<a href="https://groups.google.com/forum/#!forum/metal-sokendai">the mailing list</a>.
+Do NOT contact the administrators personally.</li>
 </ul>
 
 <h2 id="how-to-setup-ssh-keys">How to setup SSH keys</h2>
@@ -131,7 +136,7 @@ you can login from the local computer with the private key <code>~/.ssh/id_ed255
 
 <h2 id="pbs-job-scheduler">PBS job scheduler</h2>
 
-<p><a href="https://www.google.co.jp/search?q=pbs+professional+14">Documentation</a></p>
+<p>Read <a href="https://www.google.co.jp/search?q=pbs+professional+14">PBS User&rsquo;s Guide</a>.</p>
 
 <h3 id="check-ths-system-status">Check ths system status</h3>
 
