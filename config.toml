@@ -17,6 +17,6 @@ fractions = false
 plainIDAnchors = true
 
 [params]
-logo_src = "android-chrome-192x192.png"
-logo_alt = "android-chrome-192x192.png"
+logo_src = "sokendai-logomark.svg"
+logo_alt = "sokendai-logomark.svg"
 theme_color = "#1a4694"
