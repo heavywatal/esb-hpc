@@ -6,18 +6,20 @@ weight = 5
 
 ## Getting Started
 
-1. [Prepare an SSH key pair on your local computer]({{< relref "usage.md#how-to-setup-ssh-keys" >}}).
-1. Complete [the online registration form](https://goo.gl/forms/kxe6AWalGjH4wg5t2).
-1. Accept the invitation to [the user mailing list](https://groups.google.com/forum/#!forum/metal-sokendai).
-1. Login to the server: `ssh <USERNAME>@metal.campus.soken.ac.jp`
+1.  Read through all the pages in this document.
+1.  [Prepare an SSH key pair on your local computer]({{< relref "usage.md#how-to-setup-ssh-keys" >}}).
+1.  Complete [the online registration form](https://goo.gl/forms/kxe6AWalGjH4wg5t2).
+1.  Accept the invitation to [the user mailing list](https://groups.google.com/forum/#!forum/metal-sokendai).
+1.  Login to the server: `ssh <USERNAME>@metal.campus.soken.ac.jp`
 
 <!--more-->
 
 ## Notes
 
-- The server is accessible **only from the ESB campus LAN**.
 - No graphical user interface (GUI) is available;
   all the operation has to be carried out with a **command-line interface (CLI)**.
+  Basic knowledge of shell scripting is required.
+- The server is accessible **only from the ESB campus LAN**.
 - It is recommended to use
   [**rsync**](https://www.google.co.jp/search?q=rsync+ssh)
   to transfer your files between your local computer and the server.
@@ -31,7 +33,9 @@ weight = 5
 - Check [the list of available softwares]({{< relref "software.md" >}}).
   You can install additional softwares into your home directory,
   or ask the administrator for system-wide installation.
-
+- Feel free to post any question and request to
+  [the mailing list](https://groups.google.com/forum/#!forum/metal-sokendai).
+  Do NOT contact the administrators personally.
 
 ## How to setup SSH keys
 
@@ -80,7 +84,7 @@ weight = 5
 
 ## PBS job scheduler
 
-[Documentation](https://www.google.co.jp/search?q=pbs+professional+14)
+Read [PBS User's Guide](https://www.google.co.jp/search?q=pbs+professional+14).
 
 ### Check ths system status
 
