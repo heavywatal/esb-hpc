@@ -8,6 +8,9 @@ weight = 1
 
 ## News
 
+2018-11-09
+: The system is shut down for the scheduled power outage.
+
 2018-04-20
 : User registration started.
 

@@ -25,7 +25,6 @@ CentOS 7.3 x86_64
     - libc++ 3.8.0 (EPEL)
     - python 2.7.5
     - ruby 2.0.0p648
-    - R 3.4.4 (EPEL)
 - Other tools
     - git 1.8.3.1
 
@@ -48,20 +47,20 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 ### Compilers, Interpreters, and Libraries
 
 - gcc 5.5
-- clang 6.0 (libc++ is not available yet)
-- python 3.6
+- clang 7.0 (libc++ is not available yet)
+- python 3.7
 - R 3.5
 - boost ≥1.67
-- eigen ≥3.3.4
-- gsl ≥2.4
+- eigen ≥3.3.5
+- gsl ≥2.5
 
 ### General tools
 
-- tmux ≥2.7
-- cmake ≥3.11
-- git ≥2.17
-- emacs ≥25.3
-- nano ≥2.9.5
+- tmux ≥2.8
+- cmake ≥3.12
+- git ≥2.19
+- emacs ≥26.1
+- nano ≥3.1
 
 ### Bioinformatics tools
 
@@ -90,6 +89,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - numpy
 - scipy
 - pandas
+- scikit-learn
 - matplotlib
 - seaborn
 - biopython

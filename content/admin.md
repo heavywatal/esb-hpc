@@ -67,6 +67,46 @@ draft = true
 - If the software is available on Linuxbrew, use it.
 - `brew` must be executed by a non-root user.
 
+### Python
+
+```sh
+brew install python
+pip3 install --upgrade pip setuptools wheel
+pip3 install pandas scikit-learn seaborn biopython
+pip3 install flake8 requests psutil Pillow
+```
+
+### R
+
+Use Linuxbrew's R because EPEL's R does not support CXX14.
+
+```sh
+brew install r --without-cairo --without-xorg
+```
+
+```r
+old.packages()
+update.packages(ask=FALSE)
+
+pkgs = c(
+  'tidyverse',
+  'fs',
+  'devtools',
+  'roxygen2',
+  'cowplot',
+  'gridExtra',
+  'igraph',
+  'ape',
+  'rstan',
+  'doParallel',
+  'extrafont',
+  "BiocManager"
+)
+lib = '/home/linuxbrew/.linuxbrew/lib/R/3.5/site-library'
+install.packages(pkgs, lib = lib)
+BiocManager::install(c("Biostrings", "GenomicRanges", "rtracklayer"), lib = lib)
+BiocManager::install(c("VariantAnnotation", "edgeR", 'topGO'), lib = lib)
+```
 
 ### Others
 
