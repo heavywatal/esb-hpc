@@ -21,12 +21,12 @@ Uninterruptible Power Supply (UPS)
 
 ## Computer
 
-| Node    | Hostname   | CPU                    | GHz  | Cores | RAM  |
-| ------- | ---------- | ---------------------- | ---- | ----- | ---- |
-| head    | `metal`    | Intel Xeon Silver 4108 | 1.80 | 2x8   | 96GB |
-| compute | `metal01`  | Intel Xeon Gold 6126   | 2.60 | 2x12  | 96GB |
-|         | &#8942;    |                        |      |       |      |
-|         | `metal04`  |                        |      |       |      |
+| Node    | Hostname   | CPU                    | GHz  | FLOPS  | Cores | RAM  |
+| ------- | ---------- | ---------------------- | ---- | ------ | ----- | ---- |
+| head    | `metal`    | Intel Xeon Silver 4108 | 1.80 |        | 2x8   | 96GB |
+| compute | `metal01`  | Intel Xeon Gold 6126   | 2.60 | 2x998G | 2x12  | 96GB |
+|         | &#8942;    |                        |      |        |       |      |
+|         | `metal04`  |                        |      |        |       |      |
 
 
 ## Storage
