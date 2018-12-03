@@ -8,49 +8,43 @@ draft = true
 
 - [Google Form](https://docs.google.com/forms/d/13PUga_MUGX5cuFJ5dUjMC9BC1P1cQN4rohS_g-AQIz8/edit)
 
+1.  Login as root: `su -`
+
+1.  Create an account:
+    ```sh
+    NEWUSER=______
+    useradd -m -g users -s /bin/bash ${NEWUSER}
+    passwd ${NEWUSER}
+    ```
+    Generate random password (e.g., copy partial sequence from ssh public key),
+    and forget it.
+
+1.  Update NIS:
+    ```sh
+    make -C /var/yp
+    ypbind -c
+    ypcat passwd
+    systemctl restart rpcbind.service
+    ```
+
+1.  Configure SSH:
+    ```sh
+    vim /home/${NEWUSER}/.ssh/authorized_keys
+    chmod 700 /home/${NEWUSER}/.ssh
+    chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
+    chown -R ${NEWUSER}:users /home/${NEWUSER}/.ssh
+    ```
+
 1.  Add the user (and his/her mentor) to
     [metal-sokendai](https://groups.google.com/forum/#!forum/metal-sokendai):
-    "Manage" => "Invite members"
-    ```
-    Dear ______,
+    "Manage" => "Direct add members"
 
-    Please accept this invitation to create a user account on Metal system.
+    Message:
+    ```
+    ______ has been successfully registered as a user of Metal system.
     Various notifications such as server maintenance and updates will be provided with this mailing list.
     You can also post questions and requests here.
 
-    Best,
-    Watal
-    ```
-
-1.  Create an account
-    ```sh
-    # NEWUSER=______
-    # useradd -m -g users -s /bin/bash ${NEWUSER}
-    # passwd ${NEWUSER}
-    ```
-
-1.  Update NIS
-    ```sh
-    # make -C /var/yp
-    # ypbind -c
-    # ypcat passwd
-    # systemctl restart rpcbind.service
-    ```
-
-1.  Configure SSH
-    ```sh
-    # emacs /home/${NEWUSER}/.ssh/authorized_keys
-    # chmod 700 /home/${NEWUSER}/.ssh
-    # chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
-    # chown -R ${NEWUSER}:users /home/${NEWUSER}/.ssh
-    ```
-
-1.  Send an email:
-    ```
-    Dear ______,
-    CC: Prof. ______,
-
-    You have been successfully registered as a user of Metal system.
     Try loggin in to the server with the following command:
 
     ssh ______@metal.campus.soken.ac.jp
