@@ -37,14 +37,21 @@ draft = true
 
 1.  Add the user (and his/her mentor) to
     [metal-sokendai](https://groups.google.com/forum/#!forum/metal-sokendai):
-    "Manage" => "Direct add members"
-
-    Message:
+    "Manage" => "Direct add members".
+    Message example:
     ```
-    ______ has been successfully registered as a user of Metal system.
-    Various notifications such as server maintenance and updates will be provided with this mailing list.
+    Your email address has been registered to metal-sokendai mailing list.
+    Various notifications such as server maintenance and updates will be delivered.
     You can also post questions and requests here.
+    ```
 
+1.  Send an email to the new user:
+
+    ```
+    Dear ______,
+    CC: Prof. ______,
+
+    You have been successfully registered as a user of Metal system.
     Try loggin in to the server with the following command:
 
     ssh ______@metal.campus.soken.ac.jp
