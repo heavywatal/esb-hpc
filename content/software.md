@@ -50,37 +50,38 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - clang 7.0 (libc++ is not available yet)
 - python 3.7
 - R 3.5
-- boost ≥1.67
-- eigen ≥3.3.5
-- gsl ≥2.5
+- boost 1.68
+- eigen 3.3.5
+- gsl 2.5
 
 ### General tools
 
-- tmux ≥2.8
-- cmake ≥3.12
-- git ≥2.19
-- emacs ≥26.1
-- nano ≥3.1
+- tmux 2.8
+- cmake 3.13
+- git 2.19
+- emacs 26.1
+- nano 3.2
 
 ### Bioinformatics tools
 
-- bedtools
-- bowtie2
-- bwa
-- blast
-- gatk
-- hisat2
-- htslib
+- bedtools 2.27.1
+- bowtie2 2.3.4
+- bwa 0.7.17
+- blast 2.7.1
+- gatk 4.0.11
+- hisat2 2.1.0
+- htslib 1.9
 - libsequence
-- mafft
-- paml
-- RAxML
-- RepeatMasker
-- RepeatModeler
-- RepeatScout
-- samtools
-- structure
-- varscan
+- mafft 7.407
+- paml 4.9h
+- RAxML 8.2.12
+- RepeatMasker 4.0.7
+- RepeatModeler 1.0.8
+- RepeatScout 1.0.5
+- samtools 1.9
+- structure 2.3.4
+- varscan 2.4.3
+- velvet 1.2.10
 
 ### Python packages
 
