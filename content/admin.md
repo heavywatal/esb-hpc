@@ -153,3 +153,8 @@ qmgr -c "print server"
 qmgr -c "set server job_history_enable=True"
 qmgr -c "set server job_history_duration=720:00:00"
 ```
+
+### ToDo
+
+- Configure queues
+- Fix timezone setting
