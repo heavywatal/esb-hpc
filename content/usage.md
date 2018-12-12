@@ -20,9 +20,9 @@ weight = 5
   all the operation has to be carried out with a **command-line interface (CLI)**.
   Basic knowledge of shell scripting is required.
 - The server is accessible **only from the ESB campus LAN**.
-- It is recommended to use
-  [**rsync**](https://www.google.co.jp/search?q=rsync+ssh)
+- It is recommended to use [**rsync**](https://www.google.co.jp/search?q=rsync+ssh)
   to transfer your files between your local computer and the server.
+  [**Git**](https://git-scm.com/) is also useful to manage your scripts.
 - Your home directory `~/` on the head node is shared with the compute nodes.
   You don't have to care about data transfer between nodes within the system.
 - **100GB** disk space is allocated for each user.
@@ -61,7 +61,8 @@ weight = 5
     ```
     The permissions of `~/.ssh` and `~/.ssh/id_ed25519` must be `700` and `600`, respectively.
 
-1.  Copy and paste the whole content of the public key (**NOT** private key) to the online registration form.
+1.  Copy and paste the whole content of the public key (**NOT** private key) to
+    [the online registration form](https://goo.gl/forms/kxe6AWalGjH4wg5t2).
     For example, `pbcopy` command is useful on macOS:
     ```sh
     cat ~/.ssh/id_ed25519.pub | pbcopy
@@ -92,7 +93,23 @@ Read [PBS User's Guide](https://www.google.co.jp/search?q=pbs+professional+14).
 pbsnodes -aSj
 ```
 
-### `qsub`: Submit a job
+### Check the status of jobs
+
+```sh
+# List
+qstat -x
+
+# See the detail of a job
+qstat -fx <PBS_JOBID>
+```
+
+### Delete a job
+
+```sh
+qdel <PBS_JOBID>
+```
+
+### Submit a job
 
 You can submit a job from command line or by using scripts:
 ```sh
@@ -186,20 +203,3 @@ Useful options and environment variables:
   You may want to `cd $PBS_O_WORKDIR` in many cases.
 
 See `man qsub` for more details.
-
-
-### `qstat`: Check the status of jobs
-
-```sh
-# List
-qstat -x
-
-# See the detail of a job
-qstat -fx <PBS_JOBID>
-```
-
-### `qdel`: Delete a job
-
-```sh
-qdel <PBS_JOBID>
-```

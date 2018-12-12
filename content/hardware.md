@@ -7,10 +7,10 @@ weight = 10
 ## System
 
 Head node
-: HPC5000-XSL224R2S x1
+: HPC5000-XSL224R2S x 1
 
 Compute node
-: HPC5000-XSL224R1S x4
+: HPC5000-XSL224R1S x 4
 
 Switching hub
 : NETGEAR JGS516-300JPS (GbE 16ports)
