@@ -82,9 +82,9 @@ Usage
 all the operation has to be carried out with a <strong>command-line interface (CLI)</strong>.
 Basic knowledge of shell scripting is required.</li>
 <li>The server is accessible <strong>only from the ESB campus LAN</strong>.</li>
-<li>It is recommended to use
-<a href="https://www.google.co.jp/search?q=rsync+ssh"><strong>rsync</strong></a>
-to transfer your files between your local computer and the server.</li>
+<li>It is recommended to use <a href="https://www.google.co.jp/search?q=rsync+ssh"><strong>rsync</strong></a>
+to transfer your files between your local computer and the server.
+<a href="https://git-scm.com/"><strong>Git</strong></a> is also useful to manage your scripts.</li>
 <li>Your home directory <code>~/</code> on the head node is shared with the compute nodes.
 You don&rsquo;t have to care about data transfer between nodes within the system.</li>
 <li><strong>100GB</strong> disk space is allocated for each user.
@@ -123,7 +123,8 @@ Your public key has been saved in ~/.ssh/id_ed25519.pub.
 <span class="c1"># -rw-r--r--  1 winston staff  92 Apr 04 10:00 id_ed25519.pub</span></code></pre></div>
 <p>The permissions of <code>~/.ssh</code> and <code>~/.ssh/id_ed25519</code> must be <code>700</code> and <code>600</code>, respectively.</p></li>
 
-<li><p>Copy and paste the whole content of the public key (<strong>NOT</strong> private key) to the online registration form.
+<li><p>Copy and paste the whole content of the public key (<strong>NOT</strong> private key) to
+<a href="https://goo.gl/forms/kxe6AWalGjH4wg5t2">the online registration form</a>.
 For example, <code>pbcopy</code> command is useful on macOS:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">cat ~/.ssh/id_ed25519.pub <span class="p">|</span> pbcopy</code></pre></div></li>
 
@@ -152,7 +153,15 @@ you can login from the local computer with the private key <code>~/.ssh/id_ed255
 <pre><code>pbsnodes -aSj
 </code></pre>
 
-<h3 id="qsub-submit-a-job"><code>qsub</code>: Submit a job</h3>
+<h3 id="check-the-status-of-jobs">Check the status of jobs</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># List</span>
+qstat -x
+
+<span class="c1"># See the detail of a job</span>
+qstat -fx &lt;PBS_JOBID&gt;</code></pre></div>
+<h3 id="delete-a-job">Delete a job</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">qdel &lt;PBS_JOBID&gt;</code></pre></div>
+<h3 id="submit-a-job">Submit a job</h3>
 
 <p>You can submit a job from command line or by using scripts:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">qsub -N jobname -j oe -- /path/to/your/executable <span class="o">[</span>args...<span class="o">]</span>
@@ -228,15 +237,6 @@ You may want to <code>cd $PBS_O_WORKDIR</code> in many cases.</dd>
 </dl>
 
 <p>See <code>man qsub</code> for more details.</p>
-
-<h3 id="qstat-check-the-status-of-jobs"><code>qstat</code>: Check the status of jobs</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># List</span>
-qstat -x
-
-<span class="c1"># See the detail of a job</span>
-qstat -fx &lt;PBS_JOBID&gt;</code></pre></div>
-<h3 id="qdel-delete-a-job"><code>qdel</code>: Delete a job</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">qdel &lt;PBS_JOBID&gt;</code></pre></div>
 </article>
 </main>
 
