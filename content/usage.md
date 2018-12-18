@@ -16,26 +16,42 @@ weight = 5
 
 ## Notes
 
-- No graphical user interface (GUI) is available;
-  all the operation has to be carried out with a **command-line interface (CLI)**.
-  Basic knowledge of shell scripting is required.
-- The server is accessible **only from the ESB campus LAN**.
-- It is recommended to use [**rsync**](https://www.google.co.jp/search?q=rsync+ssh)
-  to transfer your files between your local computer and the server.
-  [**Git**](https://git-scm.com/) is also useful to manage your scripts.
-- Your home directory `~/` on the head node is shared with the compute nodes.
-  You don't have to care about data transfer between nodes within the system.
-- **100GB** disk space is allocated for each user.
-  The size may be changed in the future.
-- **Do NOT execute programs directly on the head node**.
-  All the computational tasks must be managed by the PBS job scheduler
-  [(see below)](#pbs-job-scheduler).
-- Check [the list of available softwares]({{< relref "software.md" >}}).
-  You can install additional softwares into your home directory,
-  or ask the administrator for system-wide installation.
-- Feel free to post any question and request to
-  [the mailing list](https://groups.google.com/forum/#!forum/metal-sokendai).
-  Do NOT contact the administrators personally.
+- Access:
+    - Feel free to post any question and request to
+      [the mailing list](https://groups.google.com/forum/#!forum/metal-sokendai).
+      It will help other users and improving this document.
+      Do NOT contact the administrators personally.
+    - No graphical user interface (GUI) is available;
+      all the operation has to be carried out with a **command-line interface (CLI)** over **SSH** connection.
+      Basic knowledge of shell scripting is required.
+    - The server is accessible **only from the ESB campus LAN**.
+- Data Storage:
+    - **100GB** disk space is allocated for each user.
+      The size may be changed in the future.
+    - **Do NOT think this system as a long-term storage service**.
+      Transfer output data to your local computer,
+      and delete them from the server immediately after each job execution.
+      Or, at least, always keep your data deletable on the server.
+    - It is recommended to use [**rsync**](https://www.google.co.jp/search?q=rsync+ssh)
+      to transfer/synchronize your files between your local computer and the server.
+      [**Git**](https://git-scm.com/) is also useful to manage your scripts.
+    - Your home directory `~/` on the head node is shared with the compute nodes.
+      You don't have to care about data transfer between nodes within the system.
+- Job execution:
+    - **Do NOT execute programs directly on the head node**.
+      All the computational tasks must be managed by the PBS job scheduler
+      [(as detailed below)](#pbs-job-scheduler).
+      Very small tasks in the following examples are the exceptions,
+      i.e., you can execute only these commands on the head node:
+        - Basic shell operation: `pwd`, `cd`, `ls`, `cat`, `mv`, `rm`, etc.
+        - File transfer: `rsync`, `git`, etc.
+        - Text editor: `vim`, `emacs`, `nano`, etc.
+        - Compilation/installation of a small program:
+          `gcc`, `make`, `cmake`, `pip`, etc.
+        - PBS command: `pbsnodes`, `qstat`, `qsub`, etc.
+    - Check [the list of available softwares]({{< relref "software.md" >}}).
+      You can install additional softwares into your home directory,
+      or ask the administrator for system-wide installation.
 
 ## How to setup SSH keys
 
