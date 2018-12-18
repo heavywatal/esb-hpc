@@ -78,26 +78,54 @@ Usage
 <h2 id="notes">Notes</h2>
 
 <ul>
+<li>Access:
+
+<ul>
+<li>Feel free to post any question and request to
+<a href="https://groups.google.com/forum/#!forum/metal-sokendai">the mailing list</a>.
+It will help other users and improving this document.
+Do NOT contact the administrators personally.</li>
 <li>No graphical user interface (GUI) is available;
-all the operation has to be carried out with a <strong>command-line interface (CLI)</strong>.
+all the operation has to be carried out with a <strong>command-line interface (CLI)</strong> over <strong>SSH</strong> connection.
 Basic knowledge of shell scripting is required.</li>
 <li>The server is accessible <strong>only from the ESB campus LAN</strong>.</li>
+</ul></li>
+<li>Data Storage:
+
+<ul>
+<li><strong>100GB</strong> disk space is allocated for each user.
+The size may be changed in the future.</li>
+<li><strong>Do NOT think this system as a long-term storage service</strong>.
+Transfer output data to your local computer,
+and delete them from the server immediately after each job execution.
+Or, at least, always keep your data deletable on the server.</li>
 <li>It is recommended to use <a href="https://www.google.co.jp/search?q=rsync+ssh"><strong>rsync</strong></a>
-to transfer your files between your local computer and the server.
+to transfer/synchronize your files between your local computer and the server.
 <a href="https://git-scm.com/"><strong>Git</strong></a> is also useful to manage your scripts.</li>
 <li>Your home directory <code>~/</code> on the head node is shared with the compute nodes.
 You don&rsquo;t have to care about data transfer between nodes within the system.</li>
-<li><strong>100GB</strong> disk space is allocated for each user.
-The size may be changed in the future.</li>
+</ul></li>
+<li>Job execution:
+
+<ul>
 <li><strong>Do NOT execute programs directly on the head node</strong>.
 All the computational tasks must be managed by the PBS job scheduler
-<a href="#pbs-job-scheduler">(see below)</a>.</li>
+<a href="#pbs-job-scheduler">(as detailed below)</a>.
+Very small tasks in the following examples are the exceptions,
+i.e., you can execute only these commands on the head node:
+
+<ul>
+<li>Basic shell operation: <code>pwd</code>, <code>cd</code>, <code>ls</code>, <code>cat</code>, <code>mv</code>, <code>rm</code>, etc.</li>
+<li>File transfer: <code>rsync</code>, <code>git</code>, etc.</li>
+<li>Text editor: <code>vim</code>, <code>emacs</code>, <code>nano</code>, etc.</li>
+<li>Compilation/installation of a small program:
+<code>gcc</code>, <code>make</code>, <code>cmake</code>, <code>pip</code>, etc.</li>
+<li>PBS command: <code>pbsnodes</code>, <code>qstat</code>, <code>qsub</code>, etc.</li>
+</ul></li>
 <li>Check <a href="/restricted_access/esb-hpc/software/">the list of available softwares</a>.
 You can install additional softwares into your home directory,
 or ask the administrator for system-wide installation.</li>
-<li>Feel free to post any question and request to
-<a href="https://groups.google.com/forum/#!forum/metal-sokendai">the mailing list</a>.
-Do NOT contact the administrators personally.</li>
+</ul></li>
 </ul>
 
 <h2 id="how-to-setup-ssh-keys">How to setup SSH keys</h2>
