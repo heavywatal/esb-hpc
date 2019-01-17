@@ -4,6 +4,44 @@ menu = "main"
 draft = true
 +++
 
+## Keep the log
+
+### Preparation
+
+1.  Install [Hugo](https://gohugo.io/) on your local machine.
+
+1.  Fork [heavywatal/esb-hpc](https://github.com/heavywatal/esb-hpc) to your account.
+
+1.  Clone your fork repository to your local machine:
+
+    ```sh
+    REPO=https://github.com/{YOUR_NAME_HERE}/esb-hpc.git
+    git clone -b master --single-branch --recurse-submodules $REPO
+    cd esb-hpc/
+    ```
+
+1.  Set `upstream` repository:
+    `git remote add upstream https://github.com/heavywatal/esb-hpc.git`
+
+
+### Routine
+
+1.  Fetch and merge any updates in `upstream` to your `origin`.
+
+1.  Start a local hugo server to preview the output:
+    `hugo -Dw server`<br>
+    - View: http://localhost:1313/restricted_access/esb-hpc/
+      (the port may vary)
+    - Stop: <kbd>ctrl</kbd><kbd>c</kbd>
+
+1.  Edit some markdown files in `content/`.
+    The output HTML gets updated immediately by the hugo server.
+
+1.  Make a new branch to commit the updates.
+
+1.  Make a Pull Request to [heavywatal/esb-hpc](https://github.com/heavywatal/esb-hpc).
+
+
 ## Add a new user
 
 1.  Check a new entry on [Google Form](https://docs.google.com/forms/d/13PUga_MUGX5cuFJ5dUjMC9BC1P1cQN4rohS_g-AQIz8/edit)
