@@ -1,15 +1,23 @@
-.PHONY: private public
+.DEFAULT_GOAL := all
+.PHONY := all clean hugo-public hugo-private server watch
 
-all: private public
+all: hugo-public hugo-private
 	@:
 
-private:
+hugo-public: | public
+	hugo --destination=public
+
+hugo-private: |
 	hugo -D
 
 public:
-	hugo --destination=public
+	$(eval REMOTE_URL := $(shell git remote get-url origin))
+	git clone -b $@ --single-branch ${REMOTE_URL} $@
 
-start:
+server:
+	hugo -Dw server
+
+watch:
 	hugo -Dw
 
 clean:
