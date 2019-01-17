@@ -56,11 +56,13 @@ weight = 5
 ## How to setup SSH keys
 
 1.  Execute the following command on your local computer:
+
     ```
     ssh-keygen -t ed25519 -N ''
     ```
 
     Press <kbd>return</kbd> to accept the default name of the key file:
+
     ```
     Generating public/private ed25519 key pair.
     Enter file in which to save the key (~/.ssh/id_ed25519): # return
@@ -69,33 +71,39 @@ weight = 5
     ```
 
 1.  Check the created keys:
+
     ```sh
     ls -al ~/.ssh
     # drwx------ 11 winston staff 374 Apr 04 10:00 ./
     # -rw-------  1 winston staff 399 Apr 04 10:00 id_ed25519
     # -rw-r--r--  1 winston staff  92 Apr 04 10:00 id_ed25519.pub
     ```
+
     The permissions of `~/.ssh` and `~/.ssh/id_ed25519` must be `700` and `600`, respectively.
 
 1.  Copy and paste the whole content of the public key (**NOT** private key) to
     [the online registration form](https://goo.gl/forms/kxe6AWalGjH4wg5t2).
     For example, `pbcopy` command is useful on macOS:
+
     ```sh
     cat ~/.ssh/id_ed25519.pub | pbcopy
     ```
 
 1.  After the administrator adds your public key to your `~/.ssh/authorized_keys` on the server,
     you can login from the local computer with the private key `~/.ssh/id_ed25519`.
+
     ```
     ssh your_username_on_metal@metal.campus.soken.ac.jp
     ```
 
 1.  (Optional) Create `~/.ssh/config` on your local computer:
+
     ```
     Host metal
       Hostname metal.campus.soken.ac.jp
       User your_username_on_metal
     ```
+
     Then you can login with the shorter command: `ssh metal`.
 
 
@@ -128,6 +136,7 @@ qdel <PBS_JOBID>
 ### Submit a job
 
 You can submit a job from command line or by using scripts:
+
 ```sh
 qsub -N jobname -j oe -- /path/to/your/executable [args...]
     # or
@@ -135,6 +144,7 @@ qsub hello.sh
 ```
 
 An example job script `hello.sh`:
+
 ```sh
 #!/bin/sh
 #PBS -N hello-world
@@ -149,6 +159,7 @@ sleep 60
 ```
 
 An example of an array job `array.sh`:
+
 ```sh
 #!/bin/sh
 #PBS -N array-ms
@@ -163,6 +174,7 @@ ms 4 2 -t $theta
 ```
 
 An equivalent job script in Python:
+
 ```py
 #!/usr/bin/env python3
 #PBS -N array-ms-py

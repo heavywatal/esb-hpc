@@ -6,20 +6,23 @@ draft = true
 
 ## Add a new user
 
-- [Google Form](https://docs.google.com/forms/d/13PUga_MUGX5cuFJ5dUjMC9BC1P1cQN4rohS_g-AQIz8/edit)
+1.  Check a new entry on [Google Form](https://docs.google.com/forms/d/13PUga_MUGX5cuFJ5dUjMC9BC1P1cQN4rohS_g-AQIz8/edit)
 
 1.  Login as root: `su -`
 
 1.  Create an account:
+
     ```sh
     NEWUSER=______
     useradd -m -g users -s /bin/bash ${NEWUSER}
     passwd ${NEWUSER}
     ```
+
     Generate random password (e.g., copy partial sequence from ssh public key),
     and forget it.
 
 1.  Update NIS:
+
     ```sh
     make -C /var/yp
     ypbind -c
@@ -28,6 +31,7 @@ draft = true
     ```
 
 1.  Configure SSH:
+
     ```sh
     vim /home/${NEWUSER}/.ssh/authorized_keys
     chmod 700 /home/${NEWUSER}/.ssh
@@ -39,13 +43,14 @@ draft = true
     [metal-sokendai](https://groups.google.com/forum/#!forum/metal-sokendai):
     "Manage" => "Direct add members".
     Message example:
+
     ```
     Your email address has been registered to metal-sokendai mailing list.
     Various notifications such as server maintenance and updates will be delivered.
     You can also post questions and requests here.
     ```
 
-1.  Send an email to the new user:
+1.  Send an email to them:
 
     ```
     Dear ______,
