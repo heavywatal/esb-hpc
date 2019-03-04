@@ -51,7 +51,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - python 3.7
 - R 3.5
 - boost 1.68
-- eigen 3.3.5
+- eigen 3.3.7
 - gsl 2.5
 
 ### General tools
@@ -65,9 +65,9 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 ### Bioinformatics tools
 
 - bedtools 2.27.1
+- blast 2.8.1
 - bowtie2 2.3.4
 - bwa 0.7.17
-- blast 2.7.1
 - gatk 4.0.11
 - hisat2 2.1.0
 - htslib 1.9
@@ -79,13 +79,15 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - RepeatModeler 1.0.8
 - RepeatScout 1.0.5
 - samtools 1.9
+- SeqKit 0.10.1
+- stringtie 1.3.4d
 - structure 2.3.4
 - varscan 2.4.3
 - velvet 1.2.10
 
 ### Python packages
 
-`/home/linuxbrew/.linuxbrew/lib/python3.6/site-packages/`
+`/home/linuxbrew/.linuxbrew/lib/python3.7/site-packages/`
 
 - numpy
 - scipy
