@@ -69,6 +69,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - bowtie2 2.3.4
 - bwa 0.7.17
 - gatk 4.0.11
+- gffread 0.10.8
 - hisat2 2.1.0
 - htslib 1.9
 - libsequence
