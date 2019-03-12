@@ -74,6 +74,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - htslib 1.9
 - libsequence
 - mafft 7.407
+- MEME 4.11
 - paml 4.9h
 - RAxML 8.2.12
 - RepeatMasker 4.0.7
