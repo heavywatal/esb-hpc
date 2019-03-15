@@ -4,6 +4,24 @@ menu = "main"
 draft = true
 +++
 
+## Power
+
+### Boot
+
+1.  Start UPS with the power button.
+1.  Start JBOD with the power button.
+1.  Start the head node.
+1.  Run `/root/sbin/WOL` to start the compute nodes.
+
+### Shutdown
+
+1.  Notify the users.
+1.  Run `/root/sbin/HALT` to stop the compute nodes.
+1.  Run `shutdown -h now` to stop the head node.
+1.  Stop JBOD with the power button. (optional)
+1.  Stop UPS with the power button and some additional operations.
+
+
 ## Keep the log
 
 ### Preparation
@@ -201,3 +219,10 @@ qmgr -c "set server job_history_duration=720:00:00"
 
 - Configure queues
 - Fix timezone setting
+
+
+## Install hardwares
+
+-   https://www.hpc.co.jp/
+-   Apply for the campus network and fixed IP address:
+    http://www-jimu.soken.ac.jp/itc/network/network.html
