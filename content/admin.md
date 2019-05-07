@@ -164,7 +164,7 @@ pkgs = c(
   'extrafont',
   "BiocManager"
 )
-lib = '/home/linuxbrew/.linuxbrew/lib/R/3.5/site-library'
+lib = '/home/linuxbrew/.linuxbrew/lib/R/3.6/site-library'
 install.packages(pkgs, lib = lib)
 BiocManager::install(c("Biostrings", "GenomicRanges", "rtracklayer"), lib = lib)
 BiocManager::install(c("VariantAnnotation", "edgeR", 'topGO'), lib = lib)

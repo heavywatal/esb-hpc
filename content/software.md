@@ -47,26 +47,26 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 ### Compilers, Interpreters, and Libraries
 
 - gcc 5.5
-- clang 7.0 (libc++ is not available yet)
+- clang 8.0 (libc++ is not available yet)
 - python 3.7
-- R 3.5
-- boost 1.68
+- R 3.6
+- boost 1.69
 - eigen 3.3.7
 - gsl 2.5
 
 ### General tools
 
-- tmux 2.8
-- cmake 3.13
-- git 2.19
-- emacs 26.1
-- nano 3.2
+- tmux 2.9
+- cmake 3.14
+- git 2.21
+- emacs 26.2
+- nano 4.2
 
 ### Bioinformatics tools
 
-- bedtools 2.27.1
-- blast 2.8.1
-- bowtie2 2.3.4
+- bedtools 2.28
+- blast 2.9.0
+- bowtie2 2.3.5
 - bwa 0.7.17
 - gatk 4.0.11
 - gffread 0.10.8
@@ -102,7 +102,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 ### R packages
 
-`/home/linuxbrew/.linuxbrew/lib/R/3.5/site-library`
+`/home/linuxbrew/.linuxbrew/lib/R/3.6/site-library`
 
 - ape
 - BioConductor (Biostrings, GenomicRanges, *etc.*)
