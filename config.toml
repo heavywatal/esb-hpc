@@ -12,9 +12,8 @@ pygmentsUseClasses = true
 [author]
 name = "Watal M. Iwasaki"
 
-[blackfriday]
-fractions = false
-plainIDAnchors = true
+[markup.goldmark.renderer]
+unsafe = true
 
 [params]
 logo_src = "sokendai-logomark.svg"
