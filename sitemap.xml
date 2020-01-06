@@ -14,10 +14,8 @@
   </url>
   <url>
     <loc>http://localhost/restricted_access/esb-hpc/categories/</loc>
-    <priority>0</priority>
   </url>
   <url>
     <loc>http://localhost/restricted_access/esb-hpc/tags/</loc>
-    <priority>0</priority>
   </url>
 </urlset>
