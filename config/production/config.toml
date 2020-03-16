@@ -1,0 +1,3 @@
+baseURL = "http://www.esb.soken.ac.jp/restricted_access/esb-hpc/"
+publishDir = "public"
+buildDrafts = false

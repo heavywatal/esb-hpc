@@ -1,5 +1,6 @@
-baseURL = "http://localhost/restricted_access/esb-hpc/"
+baseURL = "http://localhost/hpc-esb/"
 publishDir = "private"
+buildDrafts = true
 title = "Metal — HPC cluster of ESB, SOKENDAI"
 theme = "hugo-theme-nonblog"
 languageCode = "ja"
