@@ -1,21 +1,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>http://localhost/restricted_access/esb-hpc/</loc>
+    <loc>http://www.esb.soken.ac.jp/restricted_access/esb-hpc/</loc>
   </url>
   <url>
-    <loc>http://localhost/restricted_access/esb-hpc/usage/</loc>
+    <loc>http://www.esb.soken.ac.jp/restricted_access/esb-hpc/usage/</loc>
   </url>
   <url>
-    <loc>http://localhost/restricted_access/esb-hpc/hardware/</loc>
+    <loc>http://www.esb.soken.ac.jp/restricted_access/esb-hpc/hardware/</loc>
   </url>
   <url>
-    <loc>http://localhost/restricted_access/esb-hpc/software/</loc>
+    <loc>http://www.esb.soken.ac.jp/restricted_access/esb-hpc/software/</loc>
   </url>
   <url>
-    <loc>http://localhost/restricted_access/esb-hpc/categories/</loc>
+    <loc>http://www.esb.soken.ac.jp/restricted_access/esb-hpc/categories/</loc>
   </url>
   <url>
-    <loc>http://localhost/restricted_access/esb-hpc/tags/</loc>
+    <loc>http://www.esb.soken.ac.jp/restricted_access/esb-hpc/tags/</loc>
   </url>
 </urlset>
